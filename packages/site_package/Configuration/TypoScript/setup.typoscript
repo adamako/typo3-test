@@ -3,6 +3,9 @@
 ######################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/setup.typoscript">
 
+config {
+    contentObjectExceptionHandler = 0
+}
 
 ##############
 #### PAGE ####
@@ -26,5 +29,72 @@ page {
 
     includeJSFooter {
         site_package_scripts = EXT:site_package/Resources/Public/JavaScript/Dist/scripts.js
+    }
+
+    #    dataProcessing {
+    #        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+    #        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+    #        30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+    #        40 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+    #
+    #        10 {
+    #            levels = 1
+    #            includeSpacer = 1
+    #            as = mainnavigation
+    #
+    #            20 {
+    #                table = tt_content
+    #                orderBy = sorting
+    #                where = colPos = 0
+    #                as = mainContent
+    #            }
+    #
+    #            30 {
+    #                table = tt_content
+    #                orderBy = sorting
+    #                where = colPos = 1
+    #                as = jumbotronContent
+    #            }
+    #
+    #            40 {
+    #                table = tt_content
+    #                orderBy = sorting
+    #                where = colPos = 2
+    #                as = sidebarContent
+    #            }
+    #        }
+    #    }
+
+    dataProcessing {
+#        10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+        10 {
+            levels = 1
+            includeSpacer = 1
+            as = mainnavigation
+        }
+
+        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        20 {
+            table = tt_content
+            orderBy = sorting
+            where = colPos = 0
+            as = mainContent
+        }
+
+        30 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        30 {
+            table = tt_content
+            orderBy = sorting
+            where = colPos = 1
+            as = jumbotronContent
+        }
+
+        40 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        40 {
+            table = tt_content
+            orderBy = sorting
+            where = colPos = 2
+            as = sidebarContent
+        }
     }
 }

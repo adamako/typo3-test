@@ -1,13 +1,14 @@
-base: 'https://typo-book.ddev.site/'
-errorHandling: {  }
+base: 'https://typo-book.ddev.site:8443'
 languages:
   -
     title: English
     enabled: true
-    languageId: 0
-    base: /
     locale: en_US.UTF-8
+    hreflang: ''
+    base: /
+    websiteTitle: ''
     navigationTitle: English
     flag: us
-rootPageId: 1
-routes: {  }
+    languageId: 0
+rootPageId: 4
+websiteTitle: Home
